@@ -1,4 +1,4 @@
-console.log("Made by Dapatnapo, Chester from BSIT - 3208");
+console.log("Made by Dapatnapo, Chester from BSIT - 41005, Cluster: 41017");
 
 // v Show Password v
 function seeCharacters(field) {

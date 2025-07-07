@@ -1,5 +1,5 @@
 <?php
-require_once 'database/connect.php';
+require_once 'app/database/connect.php';
 session_start();
 
 // Initialize variables
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['created_at'] = $row['created_at'];
 
                 // Redirect to the homepage
-                header("Location: home/");
+                header("Location: app/");
                 exit();
             } else {
                 $loginError = 'Invalid email or password.';
@@ -66,10 +66,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
-    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="public/vendor/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="home/css/global.css" rel="stylesheet">
-    <link href="home/images/bpm_logo_hospital.jpg" type="image/png" rel="icon">
+    <link href="public/css/global.css" rel="stylesheet">
+    <link href="public/images/bpm_logo_hospital.jpg" type="image/png" rel="icon">
 </head>
 <body style='margin: 0;'>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <div class="card-body p-md-5 mx-md-4">
 
                 <div class="text-center">
-                  <img src="home/images/bpm_logo_hospital.jpg"
+                  <img src="public/images/bpm_logo_hospital.jpg"
                     style="width: 185px; background-color: white;" alt="logo">
                   <h4 class="mt-1 mb-5 pb-1">Bestlink General Hospital</h4>
                 </div>

@@ -1,34 +1,44 @@
 Made by Dapatnapo, Chester Barry A.
 
+BETA, STILL IN DEVELOPMENT, PLEASE WAIT FOR UPDATES
+
 ************************************** HOW TO RUN THIS PROGRAM *************************************************************
 1. Put the project in the root htdocs folder in Xampp, do not change the name folder, if you did, rename the $root in config-names.php to the same name
 2. Start Apache and MySQL in Xampp
 3. Export hospital_db.sql into Phpmyadmin
 4. Rename config-names.txt into config-names.php
 5. Change Configurations in config-names.php to run this system
-6. I always update config-names.txt, so update your config-names.php every new update
+6. Change Database Configurations in .env file
+7. In Every update released, update Configurations File
 
 
 ************************************** HOW TO DEVELOP THIS PROGRAM *************************************************************
 1. index.php in the root folder is the login page
-2. home/index.php folder is the home page
-3. home/components is where the reusable system components in pages are located and can be edited
-4. Configure names in config-names.php
-5. With the help of config-helper.php, you can require the file anywhere to apply the names applied in config-names.php
-6. In /home/css/global.css you can change general colors declared in root{}
-7. Log in with doritos with the password 123 to try and explore the system
-8. Start Developing at home/sample/sampletemp.php, read the tutorials there
+2. app/index.php folder is the home page
+3. app/views is where the reusable system components in pages are located and can be edited
+4. Configure names in config/names.php
+5. With the help of config/helper.php, you can require the file anywhere to apply the names applied in config/names.php
+6. Log in with doritos with the password 123 to try and explore the system
 
 
-************************************** UPDATE LOG *************************************************************
 
+************************************** NEW UPDATE LOG *************************************************************
+
+Changed Folder Structure, see struct.txt
+Planning to add a Lightweight Router for easy Routing
+Added .env for database and other sensitive configurations to be added later
+Most content is still not loadable as file/folder structure is still in development
+
+
+************************************** OLD LOG *************************************************************
+
+
+************************************** 9th Commit: 5/19/2025 **************************************
 Now Added All Modules with some Basic Frontend for each, separated views by respective roles
 Added bootstrap icons link into home/components/head.inc.php, which made things prettier
 Added RBAC(Role-Based Access Control) where users with certain roles cannot access a page
 Added home/components/restricted.inc.php restricted users see this page when restricted
 
-
-************************************** OLD LOG *************************************************************
 
 ************************************** 8th Commit: 5/19/2025 **************************************
 Added temporary dashboard with modules of our Hospital with modals

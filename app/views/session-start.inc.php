@@ -1,7 +1,7 @@
 <?php
-    require_once __DIR__ . '/../../database/connect.php';
-    require_once __DIR__ . '/../../config-names.php';
-    require_once __DIR__ . '/../../config-helper.php';
+    require_once __DIR__ . '/../database/connect.php';
+    require_once __DIR__ . '/../../config/names.php';
+    require_once __DIR__ . '/../../config/helper.php';
 
     define('BASE_URL', config('route.root'));
 
@@ -27,9 +27,9 @@
                     }
                 </style>
             </head>
-            <form method='POST' onsubmit="return logout('../')" action='<?= BASE_URL ?>/home/process_logout.php'>
+            <form method='POST' onsubmit="return logout('../')" action='<?= BASE_URL ?>/util/process_logout.php'>
                 <div class='card shadow'>
-                    <img src="<?= BASE_URL ?>home/images/session-expired.gif" alt="">
+                    <img src="<?= BASE_URL ?>public/images/session-expired.gif" alt="" height='100px' width='100px'>
                     <h1 class='text-danger'>Session expired! Please Log in again!</h1>
                     <button type='submit' class="btn btn-danger">Back to Log in Page</button>
                 </div>

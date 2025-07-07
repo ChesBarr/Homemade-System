@@ -3,7 +3,7 @@
 function config($key, $default = null) {
     static $config;
     if (!$config) {
-        $config = include __DIR__.'../config-names.php';
+        $config = include __DIR__.'../names.php';
 
         $envFile = __DIR__ . '/../../.env';
         if (file_exists($envFile)) {

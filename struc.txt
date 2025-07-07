@@ -1,0 +1,78 @@
+/Homemade-System
+│
+├─ /app
+│   ├─ /database
+│   │   ├─ connect.php
+│   │   ├─ crud.php
+│   │   └─ hospital_db.sql
+│   │
+│   ├─ /modules
+│   │   ├─ /core transactions
+│   │   │   └─ # all core modules
+│   │   │
+│   │   ├─ /financials
+│   │   │   └─ # all financials modules
+│   │   │
+│   │   ├─ /human resources
+│   │   │   └─ # all human resources modules
+│   │   │
+│   │   ├─ /logistics
+│   │   │   └─ # all logistics modules
+│   │   │
+│   │   ├─ /users
+│   │   │   └─ # all users modules
+│   │   │
+│   │   └─ main-dashboard.php
+│   │
+│   └─ /sample
+│   │   └─ sampletemp.php
+│   │
+│   ├─ /views
+│   │   ├─ footer.inc.php
+│   │   ├─ head.inc.php
+│   │   ├─ nav-bar.inc.php
+│   │   ├─ restricted.inc.php
+│   │   └─ session-start.inc.php
+│   │
+│   └─ index.php
+│
+├─ /config
+│   ├─ helper.php
+│   ├─ names.php
+│   └─ names.txt
+│
+├─ /public
+│   ├─ /assets
+│   │   ├─ /icons
+│   │   │   └─ /fonts
+│   │   │        ├─ bootstrap-icons.woff
+│   │   │        └─ bootstrap-icons.woff2
+│   │   │   
+│   │   └─ bootstrap-icons.css
+│   │
+│   ├─ /css
+│   │   └─ global.css
+│   │
+│   ├─ /images
+│   │   └─ # all images
+│   │ 
+│   ├─ /js
+│   │   └─ main.js
+│   │
+│   └─ /vendor
+│       └─ /bootstrap
+│           ├─ bootstrap.bundle.min.js.map
+│           └─ bootstrap.min.css
+│
+├─ /routes
+│   └─ web.php
+│
+├─ /util
+│   ├─ hasher.php
+│   └─ process_logout.php
+│
+├─ .env
+├─ .gitignore
+├─ index.php
+├─ README.md
+└─ register-account.php
