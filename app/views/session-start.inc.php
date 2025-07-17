@@ -1,7 +1,10 @@
 <?php
-    require_once __DIR__ . '/../database/connect.php';
-    require_once __DIR__ . '/../../config/names.php';
-    require_once __DIR__ . '/../../config/helper.php';
+    require_once __DIR__ . '/../database/connect.php'; // Database Connection
+    require_once __DIR__ . '/../database/crud.php'; // CRUD Functions
+    require_once __DIR__ . '/../../config/names.php'; // Configurations
+    require_once __DIR__ . '/../../config/helper.php'; // Config Helper Function
+    require_once __DIR__ . '/../../config/load_env.php'; // ENV File Helper
+    loadEnv(); // Call ENV Helper Function to use
 
     define('BASE_URL', config('route.root'));
 
@@ -9,28 +12,17 @@
     session_start();
 
     if(!ISSET($_SESSION['username'])){
+        $pageTitle = 'Session Expired!';
+        require_once __DIR__ . '../head.inc.php'; // ENV File Helper
         ?>
-            <head>
-                <link rel="stylesheet" href="<?= BASE_URL ?>vendor/bootstrap/bootstrap.min.css">
-                <style>
-                    form {
-                    background-color: #f8f9fa;
-                    height: 100vh;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    }
-                    .card {
-                    padding: 2rem;
-                    text-align: center;
-                    max-width: 400px;
-                    }
-                </style>
-            </head>
-            <form method='POST' onsubmit="return logout('../')" action='<?= BASE_URL ?>/util/process_logout.php'>
-                <div class='card shadow'>
-                    <img src="<?= BASE_URL ?>public/images/session-expired.gif" alt="" height='100px' width='100px'>
-                    <h1 class='text-danger'>Session expired! Please Log in again!</h1>
+            <form style='background-color:#f8f9fa; height:100vh; display:flex; align-items:center; justify-content:center;' 
+                method='POST' 
+                onsubmit="return logout('../')" 
+                action='<?= $rootLocation ?>/logout'
+                >
+                <div style='padding:2rem; text-align:center;'>
+                    <img src="<?= BASE_URL ?>/public/images/session-expired.jpg" alt="session_expired.jpg">
+                    <h3 class='text-danger'>Session expired! Please Log in again!</h3>
                     <button type='submit' class="btn btn-danger">Back to Log in Page</button>
                 </div>
             </form>
@@ -38,8 +30,8 @@
         die();
     }
 
-    $usertbl = config('database.user_tbl');
-    $userid = config('database.user_id');
+    $usertbl = 'user_tbl';
+    $userid = 'user_id';
     $sql = "SELECT * FROM $usertbl WHERE $userid = {$_SESSION['user_id']}";
     $result = $connections->query($sql);
     if($result && $result instanceof mysqli_result && $result->num_rows > 0){

@@ -1,9 +1,10 @@
 <?php
-    require_once __DIR__ . '/database/connect.php';
+    require_once __DIR__ . '/../database/connect.php';
+    require_once __DIR__ . '/../../config/names.php';
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        require_once __DIR__ . '/database/connect.php';
-        require_once __DIR__ . '/database/crud.php';
+        require_once __DIR__ . '/../database/connect.php';
+        require_once __DIR__ . '/../database/crud.php';
         
         $fields = [
             'username' => 'string',
@@ -29,7 +30,7 @@
         
         if ($result['success']) {
             echo "<script>alert('" . "Account Successfully Created!" . "');</script>";
-            echo "<script>" . "window.location.href = 'index.php';" . "</script>";
+            echo "<script>" . "window.location.href = '$rootLocation/login';" . "</script>";
         } else {
             $regError = "Registration Error: " . $result['message'];
         }
@@ -41,10 +42,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Account</title>
-    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="public/vendor/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="home/css/global.css" rel="stylesheet">
-    <link href="home/images/bpm_logo_hospital.jpg" type="image/png" rel="icon">
+    <link href="public/css/global.css" rel="stylesheet">
+    <link href="public/images/bpm_logo_hospital.jpg" type="image/png" rel="icon">
 </head>
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
@@ -106,8 +107,8 @@
           <div class="row g-0">
             <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
               <div class="px-3 py-4 p-md-5 mx-md-4">
-                <h4 class="mb-4">Let us care for you.</h4>
-                <p class="small mb-0">2025 Bestlink General Hospital.</p>
+                <h4 class="mb-4">Register Now!</h4>
+                <p class="small mb-0"><?= $_ENV['APP_NAME'] ?></p>
               </div>
             </div>
             <div class="col-lg-6">

@@ -75,8 +75,8 @@
     <div class="footer-col">
       <h6>Resources</h6>
       <ul>
-        <li><a href="<?= $root ?>">Patient Portal</a></li>
-        <li><a href="<?= $root ?>">Doctor Login</a></li>
+        <li><a href="<?= $rootLocation ?>">Employee Self-Service</a></li>
+        <li><a href="<?= $rootLocation ?>">Financials</a></li>
         <li><a href="#">HR System</a></li>
         <li><a href="#">LMS Access</a></li>
       </ul>
@@ -94,6 +94,6 @@
   </div>
 
   <div class="footer-bottom mt-4">
-    <sub>&copy; 2025 Bestlink General Hospital. All rights reserved.</sub>
+    <sub>&copy; 2025 Sample System. All rights reserved.</sub>
   </div>
 </footer>

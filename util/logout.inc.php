@@ -15,6 +15,7 @@
     }
 
     // Redirect the user to the login page or any other page
-    header("Location: ../index.php");
+    header("Location: ".$rootLocation."/login");
+    // echo "window.location.href='register-account.php'
     exit;
 ?>

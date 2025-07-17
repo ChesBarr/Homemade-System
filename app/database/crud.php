@@ -118,6 +118,8 @@ function create($tableName, $data)
         ];
     }
 }
+// Create Function how to call
+//
 // $createSample = create('sampletable', [
 //     'column1' => 'sample_data',
 //     'column2' => 'sample_data',
@@ -157,10 +159,16 @@ function read($tableName, $conditions = [])
         ];
     }
 }
+// Read Function how to call
+// 
+// Take Data From Database
+//
 // $readSample = "SELECT * FROM sample_tbl";
 // $result = executeQuery($readSample);
 //
-// if (!empty($result)) {   // Display All
+// Display All
+//
+// if (!empty($result)) {
 //     foreach ($result as $row) {
 //         echo "COlumn 1: " . $row['column1'] . " Column 2: " . $row['column2'] . "<br>";
 //     }
@@ -206,6 +214,8 @@ function update($tableName, $data, $conditions)
         ];
     }
 }
+// Update Function how to call
+//
 // $updateSample = "
 //     UPDATE user_tbl 
 //     SET column1 = ?, column2 - ?

@@ -1,7 +1,5 @@
 <?php
-require_once __DIR__ . '../../../database/connect.php';
-require_once __DIR__ . '../../../database/crud.php';
-require_once __DIR__ . '../../components/session-start.inc.php';
+require_once __DIR__ . '/../../views/session-start.inc.php';
 
 $user = null;
 
@@ -23,62 +21,90 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <?php
-$pageTitle = $user ? htmlspecialchars($user['firstname']) . " " . htmlspecialchars($user['lastname']) : "User Not Found";
-require_once __DIR__ . '../../components/head.inc.php';
+    $pageTitle = $user ? htmlspecialchars($user['firstname']) . " " . htmlspecialchars($user['lastname']) : "User Not Found";
+    require_once __DIR__ . '/../../views/head.inc.php';
 ?>
 <body>
-<?php require_once __DIR__ . '../../components/nav-bar.inc.php'; ?>
+<?php require_once __DIR__ . '/../../views/nav-bar.inc.php'; ?>
 
 <?php
-if ($user) {
-    $pfp = BASE_URL . "/home/images/pfp-m.jpg"; 
-    
+if ($user) {    
 ?>
-    <div style='display:flex; justify-content:center; align-items:center; margin:50px 0;'>
-        <img src="<?= $pfp ?>" alt="Profile Picture" style='height:30% width:30%; border-radius:50%;'>
+    <div>
+        <img src="<?= BASE_URL ?>/public/images/pfp-m.jpg" alt="Profile Picture" style='height:20%; width:20%; border-radius:50%;'>
     </div>
     <div class='mainform'>
-        <h1><?php echo htmlspecialchars($user['firstname']) . " " . htmlspecialchars($user['lastname']); ?></h1>
+        <h1><?= $user['firstname']??''. " " . $user['lastname']??'' ?></h1>
+
         <sub>Username:</sub>
-        <h3><?php echo htmlspecialchars($user['username']); ?></h3>
+        <h3><?= $user['username']??'' ?></h3>
+
         <sub>Gender:</sub>
-        <h3><?php echo htmlspecialchars($user['gender']); ?></h3>
+        <h3><?= $user['gender']??'' ?></h3>
+
         <sub>Address:</sub>
-        <h3><?php echo htmlspecialchars($user['address']); ?></h3>
+        <h3><?= $user['address']??'' ?></h3>
+
         <sub>Date of Birth:</sub>
-        <h3><?php echo htmlspecialchars($user['dateofbirth']); ?></h3>
+        <h3><?= $user['dateofbirth']??'' ?></h3>
+
         <sub>Role:</sub>
-        <h3><?php echo htmlspecialchars($user['role']); ?></h3>
+        <h3><?= $user['role']??'' ?></h3>
+
         <sub>Email:</sub>
-        <h3><?php echo htmlspecialchars($user['email']); ?></h3>
+        <h3><?= $user['email']??'' ?></h3>
+
         <sub>Contact Number:</sub>
-        <h3><?php echo htmlspecialchars($user['contact_no']); ?></h3>
+        <h3><?= $user['contact_no']??'' ?></h3>
+
         <sub>Notes:</sub>
-        <h3><?php echo htmlspecialchars($user['notes']); ?></h3>
+        <h3><?= $user['notes']??'' ?></h3>
+
         <sub>Joined in:</sub>
-        <h3><?php echo htmlspecialchars($user['created_at']); ?></h3>
+        <h3><?= $user['created_at']??'' ?></h3>
+
 
         <div class='sort-bar'>
-            <a class='delete cancel' href='<?= BASE_URL ?>/home/users/manage-account.php'>Cancel</a>
+            <!-- Cancel -->
+            <a class='btn btn-danger bg-danger' href='<?= $rootLocation ?>/accounts-manage'>Cancel</a>
 
             <?php if ($role === 'admin' || $user_id === $view_user_id): ?>
-                <a class='update' style='display:flex; justify-content:center; align-items:center;' href='edit-account.php'>Edit Profile</a>
+                <!-- Admin or Self can edit -->
+                <a class='btn btn-primary' href='<?= $rootLocation ?>/accounts-edit'>Edit Profile</a>
+            <?php endif; ?>
 
-            <?php elseif ($role === 'admin' && $user['role'] != 'admin'): ?>
-                <form action="delete-account.php" method="POST" onsubmit="return confirm('Do you really want to delete <?php echo htmlspecialchars($user['firstname']) . ' ' . htmlspecialchars($user['lastname']); ?>\'s account forever?');">
-                    <input type='hidden' name='user_id' value="<?php echo htmlspecialchars($user['user_id']); ?>">
-                    <button class='delete' type='submit' name='delete_profile'>TERMINATE(DELETE)</button>
+            <?php if ($role === 'admin' && $user_id !== $view_user_id && $user['role'] !== 'admin'): ?>
+                <!-- Admin (not self) viewing non-admin account -->
+
+                <!-- TERMINATE Button -->
+                <form action="<?= $rootLocation ?>/accounts-delete" method="POST" onsubmit="return confirm('Do you really want to delete <?= htmlspecialchars($user['firstname'] . ' ' . $user['lastname']) ?>\'s account forever?');" style="display:inline;">
+                    <input type='hidden' name='user_id' value="<?= htmlspecialchars($user['user_id']) ?>">
+                    <button class='btn btn-danger bg-danger' type='submit' name='delete_profile'>TERMINATE (DELETE)</button>
+                </form>
+
+                <!-- Ban -->
+                <form action="<?= $rootLocation ?>/accounts-ban" method="POST" style="display:inline;">
+                    <input type='hidden' name='user_id' value="<?= htmlspecialchars($user['user_id']) ?>">
+                    <button class='btn btn-warning text-dark' type='submit' name='ban_profile'>Ban</button>
+                </form>
+
+                <!-- Whitelist -->
+                <form action="<?= $rootLocation ?>/accounts-whitelist" method="POST" style="display:inline;">
+                    <input type='hidden' name='user_id' value="<?= htmlspecialchars($user['user_id']) ?>">
+                    <button class='btn btn-success' type='submit' name='whitelist_profile'>Whitelist</button>
                 </form>
 
             <?php endif; ?>
         </div>
+        
+
     </div>
 <?php
 } else {
-    echo "<h1>Invalid or User Not Found</h1>";
+    echo "<h1 class='bg-danger'>Invalid or User Not Found</h1>";
 }
 ?>
 
-<?php require_once __DIR__ . '../../components/footer.inc.php'; ?>
+<?php require_once __DIR__ . '/../../views/footer.inc.php'; ?>
 </body>
 </html>

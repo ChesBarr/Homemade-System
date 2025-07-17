@@ -1,7 +1,5 @@
 <?php
-require_once __DIR__ . '../../../database/connect.php';
-require_once __DIR__ . '../../../database/crud.php';
-require_once __DIR__ . '../../components/session-start.inc.php';
+require_once __DIR__ . '/../../views/session-start.inc.php';
 
 // Initialize variables
 $username = $firstname = $lastname = $gender = $address = $dateofbirth = $contact_no = $notes = $role = $email = $created_at = "";
@@ -65,9 +63,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="en">
 <?php $pageTitle = "Edit Profile";
-require '../components/head.inc.php'; ?>
+require_once __DIR__ . '/../../views/head.inc.php'; ?>
 <body>
-<?php require '../components/nav-bar.inc.php'; ?>
+<?php require_once __DIR__ . '/../../views/nav-bar.inc.php'; ?>
 
 <div class="container mt-4">
     <h1 class='title'>Edit Profile</h1>
@@ -120,12 +118,12 @@ require '../components/head.inc.php'; ?>
         <h3><?= $created_at ?></h3>
 
         <div class="sort-bar">
-            <a class='delete cancel' href="<?= BASE_URL ?>/home/users/manage-account.php">Cancel</a>
-            <button type="submit" class="update">Save Changes</button>
+            <a class='btn btn-danger' href="<?= BASE_URL ?>/accounts-manage">Cancel</a>
+            <button class="btn btn-primary" >Save Changes</button>
         </div>
     </form>
 </div>
 
-<?php require_once __DIR__ . '../../components/footer.inc.php'; ?>
+<?php require_once __DIR__ . '/../../views/footer.inc.php'; ?>
 </body>
 </html>

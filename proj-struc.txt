@@ -1,6 +1,10 @@
 /Homemade-System
 │
 ├─ /app
+│   ├─ /auth
+│   │   ├─ login.php
+│   │   └─ register-account.php
+│   │   
 │   ├─ /database
 │   │   ├─ connect.php
 │   │   ├─ crud.php
@@ -18,18 +22,21 @@
 │   │   │
 │   │   ├─ /logistics
 │   │   │   └─ # all logistics modules
+│   │   │   
+│   │   ├─ /sample
+│   │   │   └─ sample.php
 │   │   │
 │   │   ├─ /users
 │   │   │   └─ # all users modules
+│   │   │   
 │   │   │
 │   │   └─ main-dashboard.php
 │   │
-│   └─ /sample
-│   │   └─ sampletemp.php
 │   │
 │   ├─ /views
 │   │   ├─ footer.inc.php
 │   │   ├─ head.inc.php
+│   │   ├─ home.php
 │   │   ├─ nav-bar.inc.php
 │   │   ├─ restricted.inc.php
 │   │   └─ session-start.inc.php
@@ -38,17 +45,18 @@
 │
 ├─ /config
 │   ├─ helper.php
+│   ├─ load_env.php
 │   ├─ names.php
 │   └─ names.txt
 │
 ├─ /public
 │   ├─ /assets
-│   │   ├─ /icons
-│   │   │   └─ /fonts
-│   │   │        ├─ bootstrap-icons.woff
-│   │   │        └─ bootstrap-icons.woff2
-│   │   │   
-│   │   └─ bootstrap-icons.css
+│   │   └─ /icons
+│   │       ├─ /fonts
+│   │       │    ├─ bootstrap-icons.woff
+│   │       │    └─ bootstrap-icons.woff2
+│   │       │
+│   │       └─ bootstrap-icons.css
 │   │
 │   ├─ /css
 │   │   └─ global.css
@@ -74,5 +82,4 @@
 ├─ .env
 ├─ .gitignore
 ├─ index.php
-├─ README.md
-└─ register-account.php
+└─ README.md

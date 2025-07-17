@@ -46,7 +46,7 @@ error_reporting(E_ALL);
     <a class="navbar-brand" href="#"><i class="fab fa-linkedin fa-2x"></i></a>
     <!-- Search form -->
     <form class="input-group" style="width: 400px">
-      <input type="search" class="form-control" placeholder="Any thoughts? <?= $role." ".$username  ?>?" aria-label="Search" />
+      <input type="search" class="form-control" placeholder="What's on your mind <?= $username ?>?" aria-label="Search" />
       <button class="btn btn-outline-primary" type="button" data-mdb-ripple-init data-mdb-ripple-color="dark" style="padding: .45rem 1.5rem .35rem;">
         Search
       </button>
@@ -64,7 +64,7 @@ error_reporting(E_ALL);
       <!-- Left links -->
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link d-flex flex-column text-center active" aria-current="page" href="<?= BASE_URL ?>/app/"><i class="fas fa-home fa-lg my-2"></i><span class="small">Home</span></a>
+          <a class="nav-link d-flex flex-column text-center active" aria-current="page" href="<?= $rootLocation ?>/home"><i class="fas fa-home fa-lg my-2"></i><span class="small">Home</span></a>
         </li>
         <?php
           require_once __DIR__ . '/../../config/helper.php';
@@ -97,22 +97,22 @@ error_reporting(E_ALL);
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-dropdown-init aria-expanded="false">
-            <?php $pfp = BASE_URL . "/public/images/pfp-m.jpg"; ?>
+            <?php $pfp = BASE_URL . "public/images/pfp-m.jpg"; ?>
             <img src="<?= $pfp ?>" class="rounded-circle" onclick="visible('personalActions');" height="30" alt="" loading="lazy"/>
             <ul class="dropdown-menu" id="personalActions" aria-labelledby="navbarDropdownMenuLink">
               <li>
-                <form action='<?= BASE_URL ?>app/modules/users/view-account.php' method='POST'>
+                <form action='<?= $rootLocation ?>/accounts-view' method='POST'>
                   <input type='hidden' name='user_id' value="<?= $user_id ?>">
                   <a href="#" onclick="this.closest('form').submit();" class="dropdown-item">My Profile</a>
                 </form>
               </li>
               <li>
-                <form action="<?= BASE_URL ?>/app" method="POST">
+                <form action="<?= $rootLocation ?>/app" method="POST">
                   <a href="#" onclick="this.closest('form').submit();" class="dropdown-item">Settings</a>
                 </form>
               </li>
               <li>
-                <form action="<?= BASE_URL ?>/util/process_logout.php" method="POST">
+                <form action="<?= $rootLocation ?>/logout" method="POST">
                   <a href="#" onclick="this.closest('form').submit();" class="dropdown-item">Log Out</a>
                 </form>
               </li>
@@ -128,5 +128,5 @@ error_reporting(E_ALL);
 </nav>
 <!-- Navbar -->
 
-<script src="<?= BASE_URL ?>public/vendor/bootstrap/bootstrap.bundle.min.js"></script>
-<script src="<?= BASE_URL ?>public/js/main.js"></script>
+<script src="<?= BASE_URL ?>/public/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="<?= BASE_URL ?>/public/js/main.js"></script>

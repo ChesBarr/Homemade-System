@@ -1,13 +1,12 @@
 <?php
-    require_once __DIR__ . '../../../database/connect.php';
-    require_once __DIR__ . '../../components/session-start.inc.php';
-    require_once __DIR__ . '/../../config-helper.php';
-    require_once __DIR__ . '../../../database/crud.php';
+    require_once __DIR__ . '../../database/connect.php';
+    require_once __DIR__ . '../../views/session-start.inc.php';
+    require_once __DIR__ . '../../../config/helper.php';
+    require_once __DIR__ . '../../database/crud.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php $pageTitle = "Dashboard";
-require_once __DIR__ . '../../components/head.inc.php'; ?>
+<?php $pageTitle = "Dashboard"; require_once __DIR__ . '../../views/head.inc.php'; ?>
 <head>
     <style>
         .custom-modal {
@@ -64,8 +63,7 @@ require_once __DIR__ . '../../components/head.inc.php'; ?>
     </style>
 </head>
 <body>
-    <?php require_once __DIR__ . '../../components/nav-bar.inc.php'; ?>
-
+    <?php require_once __DIR__ . '../../views/nav-bar.inc.php'; ?>
 
     <div class="container py-5">
         <h2 class="text-center mb-5">Where to, <?= $username ?>?</h2>
@@ -112,7 +110,7 @@ require_once __DIR__ . '../../components/head.inc.php'; ?>
             <div class="list-group">
                 <h4>HR Part 1-2</h4>
                 <?php
-                    require_once __DIR__ . '/../../config-helper.php';
+                    require_once __DIR__ . '/../../config/helper.php';
 
                     $routes = config('route');
                     if (isset($routes['hr12'])) {
@@ -234,7 +232,7 @@ require_once __DIR__ . '../../components/head.inc.php'; ?>
     </div>
 
 
-    <?php require_once __DIR__ . '../../components/footer.inc.php'; ?>
+    <?php require_once __DIR__ . '../../views/footer.inc.php'; ?>
     <script>
         function showModal(id) {
             const el = document.getElementById(id);

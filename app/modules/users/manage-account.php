@@ -1,10 +1,10 @@
 <?php
     require_once __DIR__ . '../../../database/connect.php';
-    require_once __DIR__ . '../../components/session-start.inc.php';
+    require_once __DIR__ . '/../../views/session-start.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php $pageTitle = "Manage Accounts"; require_once __DIR__ . '../../components/head.inc.php'; ?>
+<?php $pageTitle = "Manage Accounts"; require_once __DIR__ . '/../../views/head.inc.php'; ?>
 <style>
     .display-accounts {
         display:flex; justify-content:center; align-items:center;
@@ -28,10 +28,11 @@
     }
 </style>
 <body>
-<?php require_once __DIR__ . '../../components/nav-bar.inc.php'; ?>
+<?php require_once __DIR__ . '/../../views/nav-bar.inc.php'; ?>
 
 <div class='display-accounts'>
 <div class="container py-5">
+  <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-success" onclick="window.location.href='<?= BASE_URL ?>/accounts-create';">Create New Account</button>
   <h2 class="text-center mb-4">Manage Accounts</h2>
   <div class="table-responsive">
     <table class="table table-hover table-bordered align-middle text-center">
@@ -47,15 +48,7 @@
       </thead>
       <tbody>
         
-        <!-- Create Button Row -->
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td class='bg-success text-white rounded-pill' onclick="window.location.href='create-account.php';" style="cursor: pointer;"><h3>Create New Account</h3></td>
-          <td></td>
-          <td></td>
-        </tr>
+        <!-- Row -->
 
 <?php
     // Display All the Accounts
@@ -70,14 +63,14 @@
         ?>
 
             <tr onclick="submitUserForm(<?= $row['user_id'] ?>);" style="cursor: pointer;">
-                <td><img src='../images/pfp-m.jpg' alt="profile" style='height:50px; width:50px;'></td>
+                <td><img src='<?= BASE_URL ?>/public/images/pfp-m.jpg' alt="profile" style='height:50px; width:50px;'></td>
                 <td><?= $row['user_id'] ?></td>
                 <td><?= $row['username'] ?></td>
                 <td><?= $row['lastname'] . ", " . $row['firstname'] ?></td>
                 <td><?= $row['email'] ?></td>
                 <td><?= $row['role'] ?></td>
             </tr>
-            <form id="userForm<?= $row['user_id'] ?>" method="POST" action="view-account.php" style="display: none;">
+            <form id="userForm<?= $row['user_id'] ?>" method="POST" action="<?= $rootLocation ?>/accounts-view" style="display: none;">
                 <input type="hidden" name="user_id" id="user_id<?= $row['user_id'] ?>" value='<?= $row['user_id'] ?>'>
             </form>
         
@@ -95,6 +88,6 @@
 </div>
 
 </div>
-<?php require_once __DIR__ . '../../components/footer.inc.php'; ?>
+<?php require_once __DIR__ . '/../../views/footer.inc.php'; ?>
 </body>
 </html>

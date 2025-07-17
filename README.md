@@ -1,36 +1,45 @@
 Made by Dapatnapo, Chester Barry A.
 
-BETA, STILL IN DEVELOPMENT, PLEASE WAIT FOR UPDATES
-
 ************************************** HOW TO RUN THIS PROGRAM *************************************************************
-1. Put the project in the root htdocs folder in Xampp, do not change the name folder, if you did, rename the $root in config-names.php to the same name
+1. Put the project in the root htdocs folder in Xampp, do not change the name folder, if you did, rename the $rootLocation in config/names.php to the same name
 2. Start Apache and MySQL in Xampp
-3. Export hospital_db.sql into Phpmyadmin
-4. Rename config-names.txt into config-names.php
-5. Change Configurations in config-names.php to run this system
-6. Change Database Configurations in .env file
-7. In Every update released, update Configurations File
+3. Import hospital_db.sql into Phpmyadmin
+4. Change Database Configurations in .env file
+5. In Every update released, update .env
 
 
 ************************************** HOW TO DEVELOP THIS PROGRAM *************************************************************
-1. index.php in the root folder is the login page
-2. app/index.php folder is the home page
+1. Log in Page is in app/auth/login.php
+2. app/modules/ is where you put all the modules
 3. app/views is where the reusable system components in pages are located and can be edited
 4. Configure names in config/names.php
-5. With the help of config/helper.php, you can require the file anywhere to apply the names applied in config/names.php
-6. Log in with doritos with the password 123 to try and explore the system
-
+5. Log in with doritos with the password 123 to try and explore the system
+6. There are more development tutorials in app/modules/sample/sample.php
 
 
 ************************************** NEW UPDATE LOG *************************************************************
+
+Newly Added Router, easier routing through pages
+
+Sample Page is now accessible and ready for tutorial
+Fixed Home Page
+Fixed Users Module
+Most Contents are now Accessible
+
+BASE_URL and $rootLocation are actually the same, proceed to use BASE_URL instead
+
+We are now Ready for Collaborative Development
+
+
+************************************** OLD LOGS *************************************************************
+
+
+************************************** 10th Commit: 7/7/2025 **************************************
 
 Changed Folder Structure, see struct.txt
 Planning to add a Lightweight Router for easy Routing
 Added .env for database and other sensitive configurations to be added later
 Most content is still not loadable as file/folder structure is still in development
-
-
-************************************** OLD LOG *************************************************************
 
 
 ************************************** 9th Commit: 5/19/2025 **************************************

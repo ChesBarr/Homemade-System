@@ -1,15 +1,12 @@
 <?php
-    require_once __DIR__ . '../../../../database/connect.php';
-    require_once __DIR__ . '../../../components/session-start.inc.php';
-    require_once __DIR__ . '/../../../config-helper.php';
-    require_once __DIR__ . '../../../../database/crud.php';
+    require_once __DIR__ . '../../../views/session-start.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php $pageTitle = "Payroll";
-require_once __DIR__ . '../../../components/head.inc.php'; ?>
+require_once __DIR__ . '../../../views/head.inc.php'; ?>
 <body>
-    <?php require_once __DIR__ . '../../../components/nav-bar.inc.php'; ?>
+    <?php require_once __DIR__ . '../../../views/nav-bar.inc.php'; ?>
 
     <div class="container mt-5">
   <h2 class="mb-3"><i class="bi bi-cash-stack me-2"></i>Payroll</h2>
@@ -29,6 +26,6 @@ require_once __DIR__ . '../../../components/head.inc.php'; ?>
 
 
 
-    <?php require_once __DIR__ . '../../../components/footer.inc.php'; ?>
+    <?php require_once __DIR__ . '../../../views/footer.inc.php'; ?>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__.'/../database/connect.php';
 
-// Hash all users' passwords
+// Hashes all users' passwords
 // hasher($connections, 'tblname', 'id', 'password');
 
 // Hash password for a single user with ID 2
@@ -40,6 +40,5 @@ function hasher($connections, $tableName, $idColumn, $passwordColumn, $userId = 
         echo "<script>alert('" . "Password(s) have been hashed successfully!" . "');</script>";
     } else {
         echo "<script>alert('" . "No users found or all passwords are already hashed." . "');</script>";
-    }
-    
+    }   
 }

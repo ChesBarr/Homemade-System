@@ -1,15 +1,12 @@
 <?php
-    require_once __DIR__ . '../../../../database/connect.php';
-    require_once __DIR__ . '../../../components/session-start.inc.php';
-    require_once __DIR__ . '/../../../config-helper.php';
-    require_once __DIR__ . '../../../../database/crud.php';
+    require_once __DIR__ . '../../../views/session-start.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php $pageTitle = "Claims and Reimbursement";
-require_once __DIR__ . '../../../components/head.inc.php'; ?>
+require_once __DIR__ . '../../../views/head.inc.php'; ?>
 <body>
-    <?php require_once __DIR__ . '../../../components/nav-bar.inc.php'; ?>
+    <?php require_once __DIR__ . '../../../views/nav-bar.inc.php'; ?>
 
     <?php
 // Define RBAC
@@ -17,7 +14,7 @@ $canView = in_array($role, ['admin', 'employee']);
 $canEdit = ($role === 'admin');
 
 if (!$canView) {
-  require_once __DIR__ . '../../../components/restricted.inc.php';
+  require_once __DIR__ . '../../../views/restricted.inc.php';
   exit;
 }
 ?>
@@ -67,6 +64,6 @@ if (!$canView) {
 
 
 
-    <?php require_once __DIR__ . '../../../components/footer.inc.php'; ?>
+    <?php require_once __DIR__ . '../../../views/footer.inc.php'; ?>
 </body>
 </html>
